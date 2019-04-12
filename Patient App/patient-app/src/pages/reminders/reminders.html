@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Reminders</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngFor="let reminder of reminders; let i = index">
+    <ion-card-header>
+      <ion-row>
+        <ion-col text-left>#{{ i + 1 }}</ion-col>
+        <ion-col class="{{reminder.priority}}" text-right>{{reminder.priority}}</ion-col>
+      </ion-row>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ reminder.description}}</p>
+      <p>Time: {{ reminder.month }}/{{ reminder.date}}/{{ reminder.year }} , {{ reminder.hours }}:{{ reminder.minutes}} </p>
+      <p>Note: {{ reminder.note }}</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col text-right>
+        <button
+          ion-button
+          clear
+          small
+          (click)="onReminderFinished(reminder)"
+        >done</button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

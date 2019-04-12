@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-xs-12">
+    <p>Doctor Name: {{doctorAccount.firstName}} {{doctorAccount.lastName}}</p>
+    <button class="btn btn-success" (click)="onNewReminder()">New Reminder</button>
+  </div>
+</div>
+<hr>
+<table class="table">
+  <tr>
+    <th *ngFor="let col of columns">
+      {{col}}
+    </th>
+  </tr>
+  <tr *ngFor="let item of reminders; let i = index" routerLinkActive="active" (click)="gotoHistoryPage(item.patientId)">
+    <td *ngFor="let col of columns">
+      {{item[col]}}
+    </td>
+  </tr>
+</table>
+<!--<div class="row">-->
+  <!--<div class="col-xs-12">-->
+    <!--<app-reminder-item "-->
+      <!--*ngFor="let reminderEl of reminders; let i = index"-->
+      <!--[reminder]="reminderEl"-->
+      <!--[index]="i"></app-reminder-item>-->
+  <!--</div>-->
+<!--</div>-->

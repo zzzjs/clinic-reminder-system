@@ -1,0 +1,16 @@
+<h2>
+  {{title}}
+</h2>
+
+<div>
+  <canvas
+    baseChart
+    [chartType]="'bar'"
+    [datasets]="chartData"
+    [labels]="last7Days"
+    [options]="chartOptions"
+    [legend]="true"
+    [colors]="colors"
+    (chartClick)="onChartClick($event)">
+  </canvas>
+</div>
